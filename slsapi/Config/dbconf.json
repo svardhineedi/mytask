@@ -1,0 +1,18 @@
+{
+"MYSQL":{
+	"host":"rdsinstance.c5u4ayuztfkj.ap-south-1.rds.amazonaws.com",
+	"port":"3306",
+	"user":"admin",
+	"password":"Ma$t3rk3y",
+	"database":"demo",
+	"driver":"MySQL ODBC 8.0 Unicode Driver"
+	},
+"SQLSERVER":{
+	"host":"DESKTOP-NSL7JSU\\SQLEXPRESS",
+	"user":"sa",
+	"port":"",
+	"password":"Ma$t3rk3y",
+	"database":"Demo",
+	"driver":"ODBC Driver 17 for SQL Server"
+	}
+}

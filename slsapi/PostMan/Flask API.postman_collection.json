@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "261c91ed-0afe-4a79-b5de-63375660d5b0",
+		"name": "Flask API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:5000/user/"
+			},
+			"response": []
+		},
+		{
+			"name": "Get User by email",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/user/?email=user1p@myemail.com",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						""
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "user1p@myemail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save User",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "user1p@myemail.com",
+							"type": "text"
+						},
+						{
+							"key": "firstname",
+							"value": "user1p",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "last1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "pwduser1p",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/user/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user by email",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://127.0.0.1:5000/user/user1p@myemail.com"
+			},
+			"response": []
+		}
+	]
+}
