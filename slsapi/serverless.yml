@@ -60,6 +60,9 @@ provider:
 #    - '!exclude-me-dir/**'
 #    - include-me.py
 #    - include-me-dir/**
+package:
+  include:
+    - "!node_modules/@modulenamespace/*/node_modules/**"
 
 functions:
   create:
