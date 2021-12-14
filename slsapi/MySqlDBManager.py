@@ -5,7 +5,6 @@ import pymysql
 import pymysql.cursors
 import logging
 from contextlib import closing
-
 from pymysql import cursors
 from DBManager import DBMgr
 from config import ConfigMgr, DBConfig
