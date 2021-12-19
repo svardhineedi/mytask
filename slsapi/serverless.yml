@@ -14,23 +14,17 @@
 org: svardhineedi
 app: slsapi
 service: slsapi
-# app and org for use with dashboard.serverless.com
-#app: your-app-name
-#org: your-org-name
 
-# You can pin your service to only deploy with a specific Serverless version
-# Check out our docs for more details
 frameworkVersion: '2'
 
 provider:
   name: aws
   runtime: python3.8
   lambdaHashingVersion: '20201221'
-
-# you can overwrite defaults here
-#  stage: dev
-#  region: us-east-1
-
+  stage: dev
+  region: us-east-1
+  iam:
+    role: "arn:aws:iam::911681623193:role/slsdemo"
 # you can add statements to the Lambda function's IAM Role here
 #  iam:
 #    role:
@@ -61,8 +55,14 @@ provider:
 #    - include-me.py
 #    - include-me-dir/**
 package:
-  include:
-    - "!node_modules/@modulenamespace/*/node_modules/**"
+  individually: true
+  excludeDevDependencies: true
+  patterns:
+    - '!node_modules/@modulenamespace/*/node_modules/**'
+    - '!tmp/**'
+    - '!.git/**'
+    - '!.vscode/**'
+    - '!venv/**'
 
 functions:
   create:
@@ -87,9 +87,7 @@ functions:
           method: get
           cors: true
           integration: lambda
-          request:
-            paths:
-              email: true
+
   delete:
     handler: /user.delete
     events:
@@ -98,9 +96,7 @@ functions:
           method: delete
           cors: true
           integration: lambda
-          request:
-            paths:
-              email: true
+
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
@@ -162,3 +158,5 @@ custom:
     packRequirements: false
   pythonRequirements:
     dockerizePip: true
+    zip: true
+    slim: true
