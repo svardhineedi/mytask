@@ -13,7 +13,7 @@
 
 org: svardhineedi
 app: slsapi
-service: slsapi
+service: user
 
 frameworkVersion: '2'
 
@@ -64,38 +64,38 @@ package:
     - '!.vscode/**'
     - '!venv/**'
 
-functions:
-  create:
-    handler: /user.save
-    events:
-      - http:
-          path: user
-          method: post
-          cors: true
-  list:
-    handler: /user.getall
-    events:
-      - http:
-          path: user
-          method: get
-          cors: true
-  get:
-    handler: /user.getUser
-    events:
-      - http:
-          path: user/{email}
-          method: get
-          cors: true
-          integration: lambda
+# # functions:
+# #   create:
+# #     handler: /user.save
+# #     events:
+# #       - http:
+# #           path: user
+# #           method: post
+# #           cors: true
+# #   list:
+# #     handler: /user.getall
+# #     events:
+# #       - http:
+# #           path: user
+# #           method: get
+# #           cors: true
+# #   get:
+# #     handler: /user.getUser
+# #     events:
+# #       - http:
+# #           path: user/{email}
+# #           method: get
+# #           cors: true
+# #           integration: lambda
 
-  delete:
-    handler: /user.delete
-    events:
-      - http:
-          path: user/{email}
-          method: delete
-          cors: true
-          integration: lambda
+# #   delete:
+# #     handler: /user.delete
+# #     events:
+# #       - http:
+# #           path: user/{email}
+# #           method: delete
+# #           cors: true
+# #           integration: lambda
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
@@ -150,8 +150,8 @@ functions:
 #       Value: "Some output value"
 
 plugins:
-  - serverless-python-requirements
   - serverless-wsgi
+  - serverless-python-requirements
 custom:
   wsgi:
     app: user.app
@@ -160,3 +160,9 @@ custom:
     dockerizePip: true
     zip: true
     slim: true
+functions:
+  app:
+    handler: wsgi.handler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
