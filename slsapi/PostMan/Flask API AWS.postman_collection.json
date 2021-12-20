@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "a32f60bc-3e7d-48ea-9447-c0921a6a5a82",
+		"name": "Flask API AWS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": "https://ek6hg9hzsf.execute-api.us-east-1.amazonaws.com/dev/user"
+			},
+			"response": []
+		},
+		{
+			"name": "Get user by email",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://ek6hg9hzsf.execute-api.us-east-1.amazonaws.com/dev/user/user913826@myemail.com"
+			},
+			"response": []
+		},
+		{
+			"name": "Add new User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "pm.user01@myemail.com",
+							"type": "text"
+						},
+						{
+							"key": "firstname",
+							"value": "PMUser01",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "PMName01",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "pwdpmuser01",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": "https://ek6hg9hzsf.execute-api.us-east-1.amazonaws.com/dev/user"
+			},
+			"response": []
+		},
+		{
+			"name": "Update user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "pm.user01@myemail.com",
+							"type": "text"
+						},
+						{
+							"key": "firstname",
+							"value": "PMUser01_upd",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "PMName01",
+							"type": "text"
+						}
+					]
+				},
+				"url": "https://ek6hg9hzsf.execute-api.us-east-1.amazonaws.com/dev/user"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "https://ek6hg9hzsf.execute-api.us-east-1.amazonaws.com/dev/user/pm.user01@myemail.com"
+			},
+			"response": []
+		}
+	]
+}
